@@ -1,7 +1,9 @@
-var http = require('http');
+var express = require('express');
 
-var server = http.createServer(function(req, res){
-    res.end(new Date().toISOString());
+var app = express();
+
+app.get('/', function(req, res){
+    res.send('Hello from inside a container!');
 });
 
-server.listen(8000);
+app.listen(8080);
