@@ -4,12 +4,12 @@ After=docker.service
 Requires=docker.service
 
 [Service]
-ExecStartPre=/usr/bin/docker pull node
-ExecStart=/usr/bin/docker run --name myservice -p 8000:8000 node
-ExecStop=/usr/bin/docker rm myservice
 TimeoutStartSec=0
-Restart=always
-RestartSec=10s
+ExecStartPre=-/usr/bin/docker kill myservice
+ExecStartPre=-/usr/bin/docker rm myservice
+ExecStartPre=/usr/bin/docker pull node:0.11-onbuild
+ExecStart=/usr/bin/docker run --name myservice node:0.11-onbuild /bin/sh -c "while true; do echo Hello World; sleep 1; done"
+ExecStop=/usr/bin/docker stop myservice
 
 [X-Fleet]
 X-Conflicts=myservice@*.service
