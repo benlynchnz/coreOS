@@ -8,7 +8,7 @@ TimeoutStartSec=0
 ExecStartPre=-/usr/bin/docker kill myservice
 ExecStartPre=-/usr/bin/docker rm myservice
 ExecStartPre=/usr/bin/docker pull node:0.11-onbuild
-ExecStart=/usr/bin/docker run --name myservice node:0.11-onbuild /bin/sh -c "while true; do echo Hello World; sleep 1; done"
+ExecStart=/usr/bin/docker run --name myservice node:0.11-onbuild myservice
 ExecStop=/usr/bin/docker stop myservice
 
 [X-Fleet]
