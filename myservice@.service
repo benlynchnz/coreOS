@@ -6,7 +6,6 @@ Requires=docker.service
 [Service]
 ExecStartPre=/usr/bin/docker pull node
 ExecStart=/usr/bin/docker run --name myservice -p 8000:8000 node
-ExecStopPre=/usr/bin/docker kill myservice
 ExecStop=/usr/bin/docker rm myservice
 TimeoutStartSec=0
 Restart=always
