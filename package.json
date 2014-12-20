@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "me@benlyn.ch",
   "license": "MIT",
+  "start": "node server.js",
   "dependencies": {
     "express": "*"
   }

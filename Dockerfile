@@ -1,3 +1,11 @@
+# DOCKER-VERSION 0.11.0
+
 FROM node:0.11-onbuild
-# replace this with your application's default port
+
 EXPOSE 8000
+
+ADD start.sh start.sh
+
+RUN chmod +x start.sh
+
+CMD ./start.sh
